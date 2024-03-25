@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Exam</title>
+<script>
+var questions = ["What is the capital of France?", "What is the square root of 16?", "What is the largest ocean on Earth?"];
+
+function generateQuestion() {
+  var index = Math.floor(Math.random() * questions.length);
+  return questions[index];
+}
+
+function validateAnswer() {
+  var correctAnswer = "Paris";
+  var userAnswer = document.getElementById("answer").value;
+
+  if (userAnswer === correctAnswer) {
+    document.getElementById("feedback").innerHTML = "Correct!";
+  } else {
+    document.getElementById("feedback").innerHTML = "Incorrect. The correct answer is " + correctAnswer;
+  }
+}
+</script>
+</head>
+<body>
+
+<h1>Exam</h1>
+
+<div id="question"></div>
+<input type="text" id="answer">
+<button type="submit" id="submit" onclick="validateAnswer()">Submit</button>
+<div id="feedback"></div>
+
+<script>
+// Generate a random question and display it to the user
+document.getElementById("question").innerHTML = generateQuestion();
+</script>
+
+</body>
+</html>
